@@ -1,106 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>My Website</title>
-
+  <title>3D</title>
   <style>
     body {
-      font-family: Josefin Sans;
-      background: #111;
-      color: white;
-      text-align: center;
       margin: 0;
-      padding: 0;
+      overflow: hidden;
+      background: black;
     }
 
-    header {
-      background: #222;
-      padding: 30px;
-    }
-
-    main {
-      padding: 40px;
-    }
-
-    .card {
-      background: #333;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 500px;
-      border-radius: 10px;
-    }
-
-    button {
-      background: #00aaff;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #0088cc;
-    }
-
-    footer {
-      padding: 20px;
-      background: #222;
+    canvas {
+      display: block;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>This is a TEST Website.</h1>
-  <p>If this works your Browser works</p>
-</header>
-
-<main>
-
-  <div class="card">
-    <h2>About Me</h2>
-    <p>
-      ABCDEFGHIJKLMNOPQRSTUVWXYZ
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>My Projects</h2>
-    <p>
-      123456789
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>@£@£@$@£$%^&*&^%$£@@%%^/*/*9656565</h2>
-    <button onclick="hello()">
-      Click Me
-    </button>
-    <p id="text"></p>
-  </div>
-
-</main>
-
-<footer>
-  E
-</footer>
-
-
-<script>
-function hello() {
-  document.getElementById("text").innerHTML =
-  "eighty-nine";
-}
-</script>
-  <script src="script.js"></script>
-<link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="3d.js"></script>
+
 </body>
 </html>
