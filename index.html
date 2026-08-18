@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>My Website</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #222;
+      padding: 30px;
+    }
+
+    main {
+      padding: 40px;
+    }
+
+    .card {
+      background: #333;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 500px;
+      border-radius: 10px;
+    }
+
+    button {
+      background: #00aaff;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0088cc;
+    }
+
+    footer {
+      padding: 20px;
+      background: #222;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Welcome to My Website 🚀</h1>
+  <p>My first HTML5 project!</p>
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>About Me</h2>
+    <p>
+      Hi! I am learning HTML5 and making this website with GitHub Pages.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>My Projects</h2>
+    <p>
+      Add your cool projects here later!
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Contact</h2>
+    <button onclick="hello()">
+      Click Me
+    </button>
+    <p id="text"></p>
+  </div>
+
+</main>
+
+<footer>
+  Made with HTML5 ✨
+</footer>
+
+
+<script>
+function hello() {
+  document.getElementById("text").innerHTML =
+  "Thanks for visiting! 😄";
+}
+</script>
+
+</body>
+</html>
