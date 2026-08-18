@@ -1,0 +1,367 @@
+:root {
+  color-scheme: light;
+  font-family: "Trebuchet MS", "Verdana", sans-serif;
+  --ink: #151515;
+  --panel: #fff4d6;
+  --cream: #ffe8a8;
+  --sky: #6bd7ff;
+  --sky-dark: #2f9ed8;
+  --hill: #3fb950;
+  --hill-dark: #19723a;
+  --grass: #25c24a;
+  --grass-light: #9df25f;
+  --dirt: #9b5a2e;
+  --dirt-dark: #5a321f;
+  --block: #ffd23f;
+  --block-side: #f59e0b;
+  --spike: #d9e2ec;
+  --spike-dark: #7c8a99;
+  --danger: #e63946;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; background: #80e2ff; }
+body { margin: 0; color: var(--ink); }
+button, kbd { font: inherit; }
+
+.page {
+  min-height: 100svh;
+  padding: 16px;
+  display: grid;
+  place-items: center;
+  background:
+    repeating-linear-gradient(0deg, rgb(255 255 255 / .22) 0 3px, transparent 3px 36px),
+    repeating-linear-gradient(90deg, rgb(255 255 255 / .18) 0 3px, transparent 3px 36px),
+    linear-gradient(180deg, #7be0ff 0%, #b8f25f 62%, #f5a13b 100%);
+}
+
+.game-shell {
+  width: min(1240px, 100%);
+}
+
+.hud {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+h1, h2, p { margin-top: 0; }
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 3.8rem, 3.8rem);
+  line-height: .95;
+  text-shadow: 4px 4px 0 #ffffff, 8px 8px 0 rgb(21 21 21 / .18);
+}
+
+.scores {
+  display: flex;
+  gap: 8px;
+}
+
+.scores div {
+  min-width: 86px;
+  padding: 9px 12px;
+  border: 4px solid var(--ink);
+  background: var(--cream);
+  box-shadow: 5px 5px 0 var(--ink);
+  text-align: center;
+}
+
+.scores span,
+.scores strong { display: block; }
+.scores span { font-size: .72rem; font-weight: 900; text-transform: uppercase; }
+.scores strong { font-size: 1.5rem; }
+
+.game {
+  position: relative;
+  width: 100%;
+  height: clamp(430px, 68svh, 690px);
+  overflow: hidden;
+  border: 6px solid var(--ink);
+  background:
+    linear-gradient(180deg, var(--sky) 0 58%, var(--sky-dark) 58% 60%, var(--hill) 60% 72%, var(--grass) 72% 100%);
+  box-shadow: 10px 10px 0 var(--ink);
+  cursor: pointer;
+  touch-action: manipulation;
+  image-rendering: pixelated;
+}
+
+.game::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    linear-gradient(rgb(0 0 0 / .08) 2px, transparent 2px),
+    linear-gradient(90deg, rgb(0 0 0 / .08) 2px, transparent 2px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.sun,
+.cloud,
+.hill-row,
+.blocky,
+.spikes,
+.ground,
+.overlay,
+.sound-toggle {
+  position: absolute;
+}
+
+.sun {
+  top: 34px;
+  right: 10%;
+  z-index: 2;
+  width: 92px;
+  height: 92px;
+  border: 6px solid var(--ink);
+  background: #ffe45e;
+  box-shadow: 9px 9px 0 #f97316, 15px 15px 0 var(--ink);
+}
+
+.cloud {
+  z-index: 2;
+  width: 144px;
+  height: 48px;
+  background: #ffffff;
+  border: 5px solid var(--ink);
+  box-shadow: 6px 6px 0 rgb(21 21 21 / .28);
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  bottom: 18px;
+  width: 48px;
+  height: 48px;
+  background: #ffffff;
+  border: 5px solid var(--ink);
+  border-bottom: 0;
+}
+
+.cloud::before { left: 18px; }
+.cloud::after { right: 18px; }
+.cloud-one { top: 86px; left: 9%; }
+.cloud-two { top: 148px; left: 52%; transform: scale(.72); }
+
+.hill-row {
+  left: -40px;
+  right: -40px;
+  bottom: 27%;
+  z-index: 2;
+  height: 132px;
+  background:
+    linear-gradient(135deg, transparent 0 46%, var(--hill-dark) 46% 54%, transparent 54%) 0 100% / 132px 132px repeat-x,
+    linear-gradient(225deg, transparent 0 46%, #64d96a 46% 54%, transparent 54%) 66px 100% / 132px 132px repeat-x;
+}
+
+.ground {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  height: 24%;
+  border-top: 6px solid var(--ink);
+  background:
+    repeating-linear-gradient(90deg, var(--grass-light) 0 28px, var(--grass) 28px 56px),
+    repeating-linear-gradient(45deg, var(--dirt) 0 18px, var(--dirt-dark) 18px 36px);
+}
+
+.ground::after {
+  content: "";
+  position: absolute;
+  inset: 34px 0 0;
+  background: repeating-linear-gradient(45deg, var(--dirt) 0 22px, var(--dirt-dark) 22px 44px);
+}
+
+.blocky {
+  left: 11%;
+  bottom: 21%;
+  z-index: 5;
+  width: clamp(100px, 13vw, 160px);
+  height: clamp(100px, 13vw, 160px);
+  border: 6px solid var(--ink);
+  background:
+    linear-gradient(135deg, #fff06a 0 20%, var(--block) 20% 72%, var(--block-side) 72% 100%);
+  box-shadow: 10px 10px 0 var(--ink);
+  transform-origin: center bottom;
+}
+
+.blocky::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgb(255 255 255 / .22) 2px, transparent 2px),
+    linear-gradient(90deg, rgb(255 255 255 / .22) 2px, transparent 2px);
+  background-size: 16px 16px;
+}
+
+.pixel {
+  position: absolute;
+  z-index: 2;
+  display: block;
+}
+
+.eye {
+  top: 32%;
+  width: 15%;
+  height: 15%;
+  background: var(--ink);
+}
+
+.eye-left { left: 25%; }
+.eye-right { right: 25%; }
+
+.mouth {
+  left: 42%;
+  bottom: 25%;
+  width: 16%;
+  height: 7%;
+  background: var(--ink);
+  box-shadow: 0 12px 0 var(--ink);
+}
+
+.cheek {
+  top: 52%;
+  width: 11%;
+  height: 9%;
+  background: #ff8fab;
+}
+
+.cheek-left { left: 13%; }
+.cheek-right { right: 13%; }
+
+.blocky.is-jumping {
+  animation: blocky-jump 760ms steps(8, end) forwards;
+}
+
+@keyframes blocky-jump {
+  0%, 100% { transform: translateY(0); }
+  38% { transform: translateY(-178px); }
+  62% { transform: translateY(-150px); }
+}
+
+.spikes {
+  right: -220px;
+  bottom: 21%;
+  z-index: 5;
+  display: flex;
+  align-items: end;
+  width: clamp(130px, 17vw, 210px);
+  height: clamp(88px, 12vw, 140px);
+  filter: drop-shadow(8px 8px 0 var(--ink));
+}
+
+.spikes span {
+  flex: 1;
+  height: 100%;
+  margin-left: -5px;
+  background: linear-gradient(90deg, var(--spike-dark), var(--spike) 46%, #ffffff 47% 58%, var(--spike-dark));
+  border: 5px solid var(--ink);
+  border-bottom: 0;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.spikes span:nth-child(2),
+.spikes span:nth-child(4) {
+  height: 82%;
+}
+
+.spikes.is-running {
+  animation: spike-run var(--run-duration, 3.35s) linear infinite;
+}
+
+@keyframes spike-run {
+  from { right: -220px; }
+  to { right: calc(100% + 220px); }
+}
+
+.overlay {
+  inset: 0;
+  z-index: 8;
+  display: grid;
+  place-content: center;
+  padding: 26px;
+  text-align: center;
+  background: rgb(255 244 214 / .9);
+}
+
+.overlay.is-hidden { display: none; }
+.overlay-kicker { margin-bottom: 8px; font-weight: 900; text-transform: uppercase; }
+.overlay h2 { margin-bottom: 10px; font-size: clamp(1.45rem, 2.4rem, 2.4rem); }
+.overlay p { max-width: 520px; }
+
+button {
+  justify-self: center;
+  margin-top: 8px;
+  padding: 12px 18px;
+  border: 4px solid var(--ink);
+  background: #f72585;
+  color: #ffffff;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+button:hover { background: #4361ee; }
+button:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+
+.sound-toggle {
+  top: 14px;
+  left: 14px;
+  z-index: 7;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font-size: 1.3rem;
+}
+
+kbd {
+  padding: 1px 6px;
+  border: 2px solid var(--ink);
+  background: #ffffff;
+  font-weight: 900;
+}
+
+.hint {
+  margin: 16px 0 0;
+  font-size: .95rem;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .page { padding: 10px; }
+  .hud { align-items: start; }
+  h1 { font-size: 2rem; }
+  .scores div { min-width: 68px; padding: 7px 8px; }
+  .game { height: 72svh; min-height: 410px; border-width: 5px; }
+  .sun { width: 66px; height: 66px; }
+  .cloud { transform: scale(.72); transform-origin: left top; }
+  .cloud-two { display: none; }
+  .blocky { left: 8%; bottom: 21%; }
+  .blocky.is-jumping { animation-name: blocky-small-jump; }
+  .spikes { width: 132px; height: 92px; }
+  .hint { font-size: .86rem; }
+}
+
+@keyframes blocky-small-jump {
+  0%, 100% { transform: translateY(0); }
+  38% { transform: translateY(-138px); }
+  62% { transform: translateY(-116px); }
+}
