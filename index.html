@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#d97706">
+  <meta name="theme-color" content="#6bd7ff">
   <title>Blocky &amp; The Spikes</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/blocky-spikes.css?v=20260818b">
 </head>
 <body>
   <main class="page">
-    <section class="game-card" aria-labelledby="game-title">
+    <section class="game-shell" aria-labelledby="game-title">
       <div class="hud">
         <div>
           <p class="eyebrow">Retro sprint challenge</p>
@@ -22,11 +22,11 @@
       </div>
 
       <div id="game" class="game" role="application" aria-label="Blocky jumping game">
-        <div class="pixel-grid" aria-hidden="true"></div>
+        <button id="sound-button" class="sound-toggle" type="button" aria-label="Turn sound off" title="Sound on">A</button>
         <div class="sun" aria-hidden="true"></div>
         <div class="cloud cloud-one" aria-hidden="true"></div>
         <div class="cloud cloud-two" aria-hidden="true"></div>
-        <div class="hills" aria-hidden="true"></div>
+        <div class="hill-row" aria-hidden="true"></div>
 
         <div id="blocky" class="blocky" aria-label="Blocky" role="img">
           <span class="pixel eye eye-left"></span>
@@ -48,7 +48,7 @@
         <div id="start-screen" class="overlay">
           <p class="overlay-kicker">Ready to run?</p>
           <h2>Jump over the spikes and keep Blocky moving.</h2>
-          <p>Press <kbd>Space</kbd>, <kbd>↑</kbd>, or tap anywhere to jump.</p>
+          <p>Press <kbd>Space</kbd>, <kbd>Up</kbd>, or tap anywhere to jump.</p>
           <button id="start-button" type="button">Start game</button>
         </div>
 
@@ -60,9 +60,9 @@
         </div>
       </div>
 
-      <p class="hint">Tap, click, or press <kbd>Space</kbd> / <kbd>↑</kbd> to hop. The speed stays fair and steady.</p>
+      <p class="hint">Tap, click, or press <kbd>Space</kbd> / <kbd>Up</kbd> to hop. Sound can be toggled with the button in the corner.</p>
     </section>
   </main>
-  <script src="js/game.js"></script>
+  <script src="js/blocky-spikes.js?v=20260818b"></script>
 </body>
 </html>
