@@ -11,16 +11,20 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+
 const geometry = new THREE.BoxGeometry();
+
 const material = new THREE.MeshBasicMaterial({
-  color: 0x00ff99,
-  wireframe: true
+  color: 0x00ffff,
+  wireframe: false
 });
 
 const cube = new THREE.Mesh(geometry, material);
+
 scene.add(cube);
 
 camera.position.z = 3;
+
 
 function animate() {
   requestAnimationFrame(animate);
@@ -32,3 +36,14 @@ function animate() {
 }
 
 animate();
+
+
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(
+    window.innerWidth,
+    window.innerHeight
+  );
+});
