@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffedd5">
-  <title>Cat vs. Errors</title>
+  <meta name="theme-color" content="#d97706">
+  <title>Blocky &amp; The Spikes</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,8 +12,8 @@
     <section class="game-card" aria-labelledby="game-title">
       <div class="hud">
         <div>
-          <p class="eyebrow">Tiny debugging adventure</p>
-          <h1 id="game-title">Cat vs. Errors</h1>
+          <p class="eyebrow">Retro sprint challenge</p>
+          <h1 id="game-title">Blocky &amp; The Spikes</h1>
         </div>
         <div class="scores" aria-label="Score board">
           <div><span>Score</span><strong id="score">0</strong></div>
@@ -21,30 +21,46 @@
         </div>
       </div>
 
-      <div id="game" class="game" role="application" aria-label="Cat jumping game">
+      <div id="game" class="game" role="application" aria-label="Blocky jumping game">
+        <div class="pixel-grid" aria-hidden="true"></div>
         <div class="sun" aria-hidden="true"></div>
         <div class="cloud cloud-one" aria-hidden="true"></div>
         <div class="cloud cloud-two" aria-hidden="true"></div>
-        <div id="cat" class="cat" aria-label="Cat">🐈</div>
-        <div id="obstacle" class="obstacle" aria-hidden="true">ERROR</div>
+        <div class="hills" aria-hidden="true"></div>
+
+        <div id="blocky" class="blocky" aria-label="Blocky" role="img">
+          <span class="pixel eye eye-left"></span>
+          <span class="pixel eye eye-right"></span>
+          <span class="pixel mouth"></span>
+          <span class="pixel cheek cheek-left"></span>
+          <span class="pixel cheek cheek-right"></span>
+        </div>
+
+        <div id="obstacle" class="spikes" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
         <div class="ground" aria-hidden="true"></div>
 
         <div id="start-screen" class="overlay">
-          <p class="overlay-kicker">Ready to debug?</p>
-          <h2>Jump over every error.</h2>
+          <p class="overlay-kicker">Ready to run?</p>
+          <h2>Jump over the spikes and keep Blocky moving.</h2>
           <p>Press <kbd>Space</kbd>, <kbd>↑</kbd>, or tap anywhere to jump.</p>
           <button id="start-button" type="button">Start game</button>
         </div>
 
         <div id="game-over-screen" class="overlay is-hidden" aria-live="polite">
-          <p class="overlay-kicker">Oops!</p>
-          <h2>That error got you.</h2>
+          <p class="overlay-kicker">Game over</p>
+          <h2>Blocky hit the spikes.</h2>
           <p>Your score: <strong id="final-score">0</strong></p>
           <button id="restart-button" type="button">Try again</button>
         </div>
       </div>
 
-      <p class="hint">Jump with Space, ↑, or a tap. The game gets faster as you go.</p>
+      <p class="hint">Tap, click, or press <kbd>Space</kbd> / <kbd>↑</kbd> to hop. The speed stays fair and steady.</p>
     </section>
   </main>
   <script src="js/game.js"></script>
