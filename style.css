@@ -1,0 +1,42 @@
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background: #111;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+header {
+  padding: 40px;
+  background: #222;
+}
+
+main {
+  padding: 30px;
+}
+
+.card {
+  background: #333;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  border-radius: 12px;
+}
+
+button {
+  background: #00aaff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0088cc;
+}
+
+footer {
+  padding: 20px;
+  background: #222;
+}
