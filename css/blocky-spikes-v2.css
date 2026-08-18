@@ -14,8 +14,8 @@
   --dirt-dark: #5a321f;
   --block: #ffd23f;
   --block-side: #f59e0b;
-  --spike: #d9e2ec;
-  --spike-dark: #7c8a99;
+  --spike: #cbd5e1;
+  --spike-dark: #64748b;
 }
 
 * { box-sizing: border-box; }
@@ -219,16 +219,18 @@ h1 {
 .eye-right { right: 25%; }
 
 .mouth {
-  left: 42%;
-  bottom: 25%;
-  width: 16%;
-  height: 7%;
-  background: var(--ink);
-  box-shadow: 0 12px 0 var(--ink);
+  left: 32%;
+  bottom: 21%;
+  width: 36%;
+  height: 24%;
+  background: transparent;
+  border-left: clamp(8px, 1vw, 12px) solid var(--ink);
+  border-right: clamp(8px, 1vw, 12px) solid var(--ink);
+  border-bottom: clamp(8px, 1vw, 12px) solid var(--ink);
 }
 
 .cheek {
-  top: 52%;
+  top: 54%;
   width: 11%;
   height: 9%;
   background: #ff8fab;
@@ -237,42 +239,38 @@ h1 {
 .cheek-left { left: 13%; }
 .cheek-right { right: 13%; }
 
-.blocky.is-jumping { animation: blocky-jump 760ms steps(8, end) forwards; }
+.blocky.is-jumping { animation: blocky-jump 820ms steps(9, end) forwards; }
 
 @keyframes blocky-jump {
   0%, 100% { transform: translateY(0); }
-  38% { transform: translateY(-188px); }
-  62% { transform: translateY(-158px); }
+  38% { transform: translateY(-285px); }
+  62% { transform: translateY(-228px); }
 }
 
 .spikes {
-  right: -220px;
+  right: -150px;
   bottom: 21%;
   z-index: 5;
-  display: flex;
-  align-items: end;
-  width: clamp(130px, 17vw, 210px);
-  height: clamp(88px, 12vw, 140px);
+  width: clamp(92px, 9vw, 128px);
+  height: clamp(92px, 11vw, 148px);
   filter: drop-shadow(8px 8px 0 var(--ink));
 }
 
 .spikes span {
-  flex: 1;
+  display: block;
+  width: 100%;
   height: 100%;
-  margin-left: -5px;
-  background: linear-gradient(90deg, var(--spike-dark), var(--spike) 46%, #ffffff 47% 58%, var(--spike-dark));
+  background: linear-gradient(90deg, var(--spike-dark) 0 22%, var(--spike) 22% 68%, #f8fafc 68% 78%, var(--spike-dark) 78% 100%);
   border: 5px solid var(--ink);
   border-bottom: 0;
   clip-path: polygon(50% 0, 100% 100%, 0 100%);
 }
 
-.spikes span:nth-child(2),
-.spikes span:nth-child(4) { height: 82%; }
 .spikes.is-running { animation: spike-run var(--run-duration, 3.35s) linear infinite; }
 
 @keyframes spike-run {
-  from { right: -220px; }
-  to { right: calc(100% + 220px); }
+  from { right: -150px; }
+  to { right: calc(100% + 150px); }
 }
 
 .overlay {
@@ -340,12 +338,12 @@ kbd {
   .cloud-two { display: none; }
   .blocky { left: 8%; bottom: 21%; }
   .blocky.is-jumping { animation-name: blocky-small-jump; }
-  .spikes { width: 132px; height: 92px; }
+  .spikes { width: 86px; height: 100px; }
   .hint { font-size: .86rem; }
 }
 
 @keyframes blocky-small-jump {
   0%, 100% { transform: translateY(0); }
-  38% { transform: translateY(-148px); }
-  62% { transform: translateY(-124px); }
+  38% { transform: translateY(-215px); }
+  62% { transform: translateY(-172px); }
 }
