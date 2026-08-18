@@ -1,29 +1,52 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Draggable 3D Cube</title>
-
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-    }
-
-    canvas {
-      display: block;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffedd5">
+  <title>Cat vs. Errors</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+  <main class="page">
+    <section class="game-card" aria-labelledby="game-title">
+      <div class="hud">
+        <div>
+          <p class="eyebrow">Tiny debugging adventure</p>
+          <h1 id="game-title">Cat vs. Errors</h1>
+        </div>
+        <div class="scores" aria-label="Score board">
+          <div><span>Score</span><strong id="score">0</strong></div>
+          <div><span>Best</span><strong id="best-score">0</strong></div>
+        </div>
+      </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+      <div id="game" class="game" role="application" aria-label="Cat jumping game">
+        <div class="sun" aria-hidden="true"></div>
+        <div class="cloud cloud-one" aria-hidden="true"></div>
+        <div class="cloud cloud-two" aria-hidden="true"></div>
+        <div id="cat" class="cat" aria-label="Cat">🐈</div>
+        <div id="obstacle" class="obstacle" aria-hidden="true">ERROR</div>
+        <div class="ground" aria-hidden="true"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/controls/OrbitControls.js"></script>
+        <div id="start-screen" class="overlay">
+          <p class="overlay-kicker">Ready to debug?</p>
+          <h2>Jump over every error.</h2>
+          <p>Press <kbd>Space</kbd>, <kbd>↑</kbd>, or tap anywhere to jump.</p>
+          <button id="start-button" type="button">Start game</button>
+        </div>
 
-<script src="3d.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-<script src="3d.js"></script>
+        <div id="game-over-screen" class="overlay is-hidden" aria-live="polite">
+          <p class="overlay-kicker">Oops!</p>
+          <h2>That error got you.</h2>
+          <p>Your score: <strong id="final-score">0</strong></p>
+          <button id="restart-button" type="button">Try again</button>
+        </div>
+      </div>
+
+      <p class="hint">Jump with Space, ↑, or a tap. The game gets faster as you go.</p>
+    </section>
+  </main>
+  <script src="js/game.js"></script>
 </body>
 </html>
