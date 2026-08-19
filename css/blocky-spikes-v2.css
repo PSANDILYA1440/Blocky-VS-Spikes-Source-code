@@ -243,7 +243,7 @@ h1 {
 
 @keyframes blocky-jump {
   0%, 100% { transform: translateY(0); }
-  38% { transform: translateY(-200px); }
+  38% { transform: translateY(-250px); }
   62% { transform: translateY(-228px); }
 }
 
