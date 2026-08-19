@@ -1,4 +1,4 @@
-# Blocky & The Spikes
+# Blocky VS The Spikes
 
 A small retro browser game for GitHub Pages.
 
