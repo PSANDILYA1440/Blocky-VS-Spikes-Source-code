@@ -347,3 +347,20 @@ kbd {
   38% { transform: translateY(-215px); }
   62% { transform: translateY(-172px); }
 }
+.credits {
+  margin-top: 22px;
+  text-align: center;
+  font-size: .9rem;
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+.credits a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.credits a:hover {
+  color: #4361ee;
+}
