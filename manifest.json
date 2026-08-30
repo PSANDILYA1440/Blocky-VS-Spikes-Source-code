@@ -1,0 +1,13 @@
+{
+  "background_color": "#38bdf8",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Blocky VS Spikes",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Blocky VS Spikes",
+  "start_url": "/",
+  "theme_color": "#db2777",
+  "id": "blocky_1440",
+  "description": "A arcade style game where you jump over Spikes as a Charactor named \"Blocky\"."
+}
