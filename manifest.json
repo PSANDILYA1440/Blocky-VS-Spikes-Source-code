@@ -9,5 +9,12 @@
   "start_url": "/",
   "theme_color": "#db2777",
   "id": "blocky_1440",
-  "description": "A arcade style game where you jump over Spikes as a Charactor named \"Blocky\"."
+  "description": "An arcade style game where you jump over Spikes as a character named 'Blocky'.",
+  "icons": [
+    {
+      "src": "/Blocky.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
